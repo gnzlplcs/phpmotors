@@ -17,7 +17,7 @@
 }
 
 body {
-  background-image: url('../images/site/checkerboard.jpg');
+  background-image: url('../images/site/small_check.jpg');
   font-family: var(--font-share-tech-mono);
 }
 
@@ -79,9 +79,9 @@ NavBar Style starts here
 }
 /* NavBar style ends here */
 
-main {
+/* main {
   height: calc(100vh - 283px);
-}
+} */
 
 /*
 ------------------------------
