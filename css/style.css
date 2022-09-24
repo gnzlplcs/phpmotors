@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-gray-light: #bababa;
+  --color-gray-darker: #8d8d8d;
+  --color-gray-darkest: #3a3a3a;
+  --color-blue-light: #a6cbeb;
+  --color-blue-dark: #4c96d7;
+  --color-white: #ffffff;
+  --font-share-tech-mono: 'Share Tech Mono', monospace;
+}
+
+body {
+  background-image: url('../images/site/checkerboard.jpg');
+  font-family: var(--font-share-tech-mono);
+}
+
+.container {
+  background-color: var(--color-white);
+  border: var(--color-blue-dark) solid 4px;
+  border-radius: 4px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  color: red;
+}
