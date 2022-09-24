@@ -14,7 +14,13 @@
     <?php
     require 'components/header.php';
     ?>
-    <main></main>
+    <?php
+    require 'components/navbar.php';
+    ?>
+
+    <main>
+      Content goes here
+    </main>
     <?php
     require 'components/footer.php';
     ?>

@@ -23,15 +23,83 @@ body {
 
 .container {
   background-color: var(--color-white);
-  border: var(--color-blue-dark) solid 4px;
-  border-radius: 4px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 5px;
 }
 
-h1 {
-  color: red;
+/*
+------------------------------
+NavBar Style starts here
+------------------------------
+*/
+.navbar {
+  background-color: var(--color-gray-darkest);
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 20px 0px;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: left;
+}
+
+.navbar ul li {
+  list-style: none;
+  margin-left: 15px;
+
+}
+
+.nav-link {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.nav-link:visited {
+  color: var(--color-gray-darker)
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: var(--color-blue-light);
+  border-bottom: 2px var(--color-blue-light) solid;
+}
+
+.nav-link:active {
+  color: var(--color-blue-dark);
+  border-bottom: 2px var(--color-blue-dark) solid;
+}
+/* NavBar style ends here */
+
+main {
+  height: calc(100vh - 283px);
+}
+
+/*
+------------------------------
+Footer style starts here
+------------------------------
+*/
+.footer {
+  padding: 20px 10px;
+  border-top: 5px var(--color-gray-darkest) solid;
+  text-align: center;
+  font-size: .8rem;
+}
+
+.footer p {
+  margin-bottom: 5px;
+}
+/* Footer style ends here */
+
+
+@media screen and (min-width: 600px) {
+  .container {
+    border: var(--color-blue-dark) solid 4px;
+    border-radius: 4px;
+  }
 }
