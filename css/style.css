@@ -182,12 +182,12 @@ Desktop view style starts here
 @media screen and (min-width: 600px) {
   .container {
     margin-top: 20px;
+    max-width: 1000px;
     border: var(--color-blue-dark) solid 4px;
     border-radius: 4px;
-    max-width: 1000px;
   }
 
-  .main {
+  .content {
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr;
@@ -201,12 +201,6 @@ Desktop view style starts here
   .hero__description {
     top: 25px;
     left: 25px;
-  }
-
-  .hero__btnContainer {
-    position: absolute;
-    top: 330px;
-    left: 40px;
   }
 
   .hero__btnContainer--one {
