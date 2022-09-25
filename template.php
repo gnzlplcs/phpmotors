@@ -17,13 +17,12 @@
     <nav class="navbar">
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     </nav>
-    <main class="main">
+    <main class="content">
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/home.php'; ?>
     </main>
     <footer class="footer">
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
     </footer>
-
   </div>
 </body>
 

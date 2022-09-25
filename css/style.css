@@ -27,6 +27,11 @@ body {
   max-width: 100vw;
 }
 
+/*
+------------------------------
+Header Style starts here
+------------------------------
+*/
 .header {
   display: flex;
   justify-content: space-between;
@@ -79,19 +84,18 @@ NavBar Style starts here
   color: var(--color-blue-dark);
   border-bottom: 2px var(--color-blue-dark) solid;
 }
-/* NavBar style ends here */
 
 /*
 ------------------------------
-Home style starts here
+Content style starts here
 ------------------------------
 */
-.main section {
+.content section {
   margin-bottom: 25px;
   padding: 0 10px;
 }
 
-.main section h2 {
+.content section h2 {
   margin-bottom: 15px;
 }
 
@@ -103,7 +107,7 @@ Home style starts here
   position: relative;
   top: 15px;
   left: 15px;
-  color: var(--color-blue-dark);
+  color: var(--color-gray-darkest);
 }
 
 .hero__imgContainer {
@@ -115,6 +119,10 @@ Home style starts here
   margin-bottom: 20px;
 }
 
+.hero__btnContainer--two {
+  display: none;
+}
+
 .hero__btnContainer--one {
   text-align: center;
 }
@@ -123,15 +131,11 @@ Home style starts here
   max-width: 200px;
 }
 
-.hero__btnContainer--two {
-  display: none;
-}
-
-.reviews ul {
+.reviews__list {
   padding-left: 30px;
 }
 
-.reviews ul li {
+.reviews__list--item {
   margin-bottom: 10px;
 }
 
@@ -169,8 +173,12 @@ Footer style starts here
 .footer p {
   margin-bottom: 5px;
 }
-/* Footer style ends here */
 
+/*
+------------------------------
+Desktop view style starts here
+------------------------------
+*/
 @media screen and (min-width: 600px) {
   .container {
     margin-top: 20px;
