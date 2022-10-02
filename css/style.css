@@ -158,6 +158,10 @@ Content style starts here
   border: 2px var(--color-gray-darkest) solid;
 }
 
+.error {
+  text-align: center;
+}
+
 /*
 ------------------------------
 Footer style starts here

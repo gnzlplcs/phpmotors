@@ -18,7 +18,7 @@
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     </nav>
     <main class="content">
-      <section>
+      <section class="error">
         <h1>Server Error</h1>
         <p>Sorry our server seems to be experiencing some technical difficulties. Please check back later.</p>
       </section>

@@ -1,4 +1,3 @@
-</section>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | PHP Motors</title>
-  <link rel="stylesheet" href="./css/style.css?v=2" media="screen">
+  <link rel="stylesheet" href="/phpmotors/css/style.css?v=2" media="screen">
 </head>
 
 <body>
@@ -28,14 +27,14 @@
             <p>Superman doors</p>
             <p>Fuzzy dice!</p>
             <div class="hero__btnContainer--two">
-              <img src='./images/site/own_today.png' alt="Own Today button" />
+              <img src='/phpmotors/images/site/own_today.png' alt="Own Today button" />
             </div>
           </div>
           <div class="hero__imgContainer">
-            <img src='./images/delorean.jpg' alt="Delorean model outline" />
+            <img src='/phpmotors/images/delorean.jpg' alt="Delorean model outline" />
           </div>
           <div class="hero__btnContainer--one">
-            <img src='./images/site/own_today.png' alt="Own Today button" />
+            <img src='/phpmotors/images/site/own_today.png' alt="Own Today button" />
           </div>
         </div>
       </section>
@@ -56,29 +55,30 @@
         <div class="upgrades__container">
           <div class="upgrade">
             <div class="upgrade__imgContainer">
-              <img src="./images/upgrades/flux-cap.png" alt="Flux cap diagram">
+              <img src="/phpmotors/images/upgrades/flux-cap.png" alt="Flux cap diagram">
             </div>
             <a href="#">Flux Capacitor</a>
           </div>
           <div class="upgrade">
             <div class="upgrade__imgContainer">
-              <img src="./images/upgrades/flame.jpg" alt="Big and orange flame">
+              <img src="/phpmotors/images/upgrades/flame.jpg" alt="Big and orange flame">
             </div>
             <a href="#">Flame Decals</a>
           </div>
           <div class="upgrade">
             <div class="upgrade__imgContainer">
-              <img src="./images/upgrades/bumper_sticker.jpg" alt="Bumper sticker">
+              <img src="/phpmotors/images/upgrades/bumper_sticker.jpg" alt="Bumper sticker">
             </div>
             <a href="#">Bumper Stickers</a>
           </div>
           <div class="upgrade">
             <div class="upgrade__imgContainer">
-              <img src="./images/upgrades/hub-cap.jpg" alt="Silver hub cap image">
+              <img src="/phpmotors/images/upgrades/hub-cap.jpg" alt="Silver hub cap image">
             </div>
             <a href="#">Hub Caps</a>
           </div>
         </div>
+      </section>
     </main>
     <footer class="footer">
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>

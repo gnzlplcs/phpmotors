@@ -1,2 +1,2 @@
-<img src="/phpmotors//images/site/logo.png" alt="PHP Motors logo">
+<img src="/phpmotors/images/site/logo.png" alt="PHP Motors logo">
 <div class="login">My Account</div>
