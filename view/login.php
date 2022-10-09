@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Template | PHP Motors</title>
+  <title>Login | PHP Motors</title>
   <link rel="stylesheet" href="/phpmotors/css/style.css?v=2" media="screen">
 </head>
 
@@ -19,7 +19,19 @@
       <?php echo $navList; ?>
     </nav>
     <main class="content">
-      <h1>Content goes here</h1>
+      <section class="login">
+        <h1>Sign in</h1>
+        <form class="form">
+          <label for="user-email">Email<br>
+            <input type="text" name="user-email" id="user-email" placeholder="john.doe@email.com" required>
+          </label>
+          <label for="user-password">Password<br>
+            <input type="password" name="user-password" id="user-password" required>
+          </label>
+          <input class="submitBtn" type="submit" id="login-submit" value="Sign-in">
+          <a href="/phpmotors/accounts/index.php?action=registration" class="link-onLight">Not a member yet?</a>
+        </form>
+      </section>
     </main>
     <footer class="footer">
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>

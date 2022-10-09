@@ -17,7 +17,8 @@
 }
 
 body {
-  background-image: url("../images/site/small_check.jpg");
+  background-image: url("/phpmotors/images/site/small_check.jpg");
+  /* background-image: url("../images/site/checkerboard.jpg"); */
   font-family: var(--font-share-tech-mono);
 }
 
@@ -43,6 +44,46 @@ Header Style starts here
   max-width: 175px;
 }
 
+.link-onLight:link {
+  color: var(--color-gray-darkest);
+  text-decoration: none;
+}
+
+.link-onLight:visited {
+  color: var(--color-gray-darkest);
+}
+
+.link-onLight:focus,
+.link-onLight:hover {
+  color: var(--color-blue-dark);
+  border-bottom: 2px var(--color-blue-dark) solid;
+}
+
+.link-onLight:active {
+  color: var(--color-gray-darker);
+  border-bottom: 2px var(--color-gray-darker) solid;
+}
+
+.link-onDark:link {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.link-onDark:visited {
+  color: var(--color-white);
+}
+
+.link-onDark:focus,
+.link-onDark:hover {
+  color: var(--color-blue-light);
+  border-bottom: 2px var(--color-blue-light) solid;
+}
+
+.link-onDark:active {
+  color: var(--color-blue-dark);
+  border-bottom: 2px var(--color-blue-dark) solid;
+}
+
 /*
 ------------------------------
 NavBar Style starts here
@@ -65,34 +106,19 @@ NavBar Style starts here
   margin-left: 15px;
 }
 
-.nav-link {
-  color: var(--color-white);
-  text-decoration: none;
-}
-
-.nav-link:visited {
-  color: var(--color-gray-darker);
-}
-
-.nav-link:focus,
-.nav-link:hover {
-  color: var(--color-blue-light);
-  border-bottom: 2px var(--color-blue-light) solid;
-}
-
-.nav-link:active {
-  color: var(--color-blue-dark);
-  border-bottom: 2px var(--color-blue-dark) solid;
-}
-
 /*
 ------------------------------
 Content style starts here
 ------------------------------
 */
+
+section {
+  padding: 20px 10px;
+}
+
 .content section {
   margin-bottom: 25px;
-  padding: 0 10px;
+  /* padding: 0 10px; */
 }
 
 .content section h2 {
@@ -180,12 +206,62 @@ Footer style starts here
 
 /*
 ------------------------------
+Login & Registration style start here
+------------------------------
+*/
+.login h1, .registration h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form label {
+  margin-bottom: 10px;
+}
+
+.form input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid var(--color-gray-darkest);
+}
+
+.form input:focus {
+  border: 2px solid var(--color-blue-dark);
+}
+
+.form a {
+  text-align: center;
+}
+
+.registration-password--instructions {
+  font-size: .8rem;
+  max-width: 200px;
+  margin-bottom: 5px;;
+}
+
+.submitBtn {
+  margin: 20px 0px;
+  max-width: 200px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: var(--color-blue-dark);
+  border: 1px solid var(--color-gray-darkest);
+  cursor: pointer;
+}
+
+/*
+------------------------------
 Desktop view style starts here
 ------------------------------
 */
 @media screen and (min-width: 600px) {
   .container {
-    margin-top: 20px;
+    margin: 20px auto;
     max-width: 1000px;
     border: var(--color-blue-dark) solid 4px;
     border-radius: 4px;
@@ -228,5 +304,9 @@ Desktop view style starts here
   .upgrades {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+  }
+
+  .login, .registration {
+    grid-column: 1 / 3;
   }
 }

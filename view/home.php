@@ -15,7 +15,6 @@
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     </header>
     <nav class="navbar">
-      <!-- <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?> -->
       <?php echo $navList; ?>
     </nav>
     <main class="content">
@@ -58,25 +57,25 @@
             <div class="upgrade__imgContainer">
               <img src="/phpmotors/images/upgrades/flux-cap.png" alt="Flux cap diagram">
             </div>
-            <a href="#">Flux Capacitor</a>
+            <a href="#" class="link-onLight">Flux Capacitor</a>
           </div>
           <div class="upgrade">
             <div class="upgrade__imgContainer">
               <img src="/phpmotors/images/upgrades/flame.jpg" alt="Big and orange flame">
             </div>
-            <a href="#">Flame Decals</a>
+            <a href="#" class="link-onLight">Flame Decals</a>
           </div>
           <div class="upgrade">
             <div class="upgrade__imgContainer">
               <img src="/phpmotors/images/upgrades/bumper_sticker.jpg" alt="Bumper sticker">
             </div>
-            <a href="#">Bumper Stickers</a>
+            <a href="#" class="link-onLight">Bumper Stickers</a>
           </div>
           <div class="upgrade">
             <div class="upgrade__imgContainer">
               <img src="/phpmotors/images/upgrades/hub-cap.jpg" alt="Silver hub cap image">
             </div>
-            <a href="#">Hub Caps</a>
+            <a href="#" class="link-onLight">Hub Caps</a>
           </div>
         </div>
       </section>
