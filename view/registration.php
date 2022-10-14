@@ -21,7 +21,12 @@
     <main class="content">
       <section class="registration">
         <h1>Registration</h1>
-        <form class="form">
+        <?php
+          if (isset($message)) {
+            echo $message;
+          }
+        ?>
+        <form class="form" method="post" action="/phpmotors/accounts/index.php">
           <label for="registration-firstname">First name<br>
             <input type="text" name="registration-firstname" id="registration-firstname" placeholder="John" required>
           </label>
@@ -36,7 +41,9 @@
             <input type="password" name="registration-password" id="registration-password" required>
           </label>
           <a class="link-onLight" href="#">Show password</a>
-          <input class="submitBtn" type="submit" id="registration-submit" value="Register">
+          <input class="submitBtn" type="submit" id="registration-submit" name="submit" value="Register">
+          <!-- Add the action name - value pair -->
+          <input type="hidden" name="action" value="register" >
           <a href="/phpmotors/accounts/index.php?action=login" class="link-onLight">Already have an account? <strong>Log in</strong></a>
         </form>
       </section>
