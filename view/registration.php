@@ -28,17 +28,17 @@
         ?>
         <form class="form" method="post" action="/phpmotors/accounts/index.php">
           <label for="registration-firstname">First name<br>
-            <input type="text" name="registration-firstname" id="registration-firstname" placeholder="John" required>
+            <input type="text" name="clientFirstname" id="registration-firstname" placeholder="John" required>
           </label>
           <label for="registration-lastname">Last name<br>
-            <input type="text" name="registration-lastname" id="registration-lastname" placeholder="Doe" required>
+            <input type="text" name="clientLastname" id="registration-lastname" placeholder="Doe" required>
           </label>
           <label for="registration-email">Email<br>
-            <input type="text" name="registration-email" id="registration-email" placeholder="john.doe@email.com" required>
+            <input type="email" name="clientEmail" id="registration-email" placeholder="john.doe@email.com" required>
           </label>
           <p class="registration-password--instructions">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter, and 1 special character</p>
           <label for="registration-password">Password<br>
-            <input type="password" name="registration-password" id="registration-password" required>
+            <input type="password" name="clientPassword" id="registration-password" placeholder="Enter a password" required>
           </label>
           <a class="link-onLight" href="#">Show password</a>
           <input class="submitBtn" type="submit" id="registration-submit" name="submit" value="Register">

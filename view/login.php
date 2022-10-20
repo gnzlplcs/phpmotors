@@ -22,6 +22,11 @@
       <section class="login">
         <h1>Sign in</h1>
         <form class="form">
+          <?php
+          if (isset($message)) {
+            echo $message;
+          }
+          ?>
           <label for="user-email">Email<br>
             <input type="text" name="user-email" id="user-email" placeholder="john.doe@email.com" required>
           </label>

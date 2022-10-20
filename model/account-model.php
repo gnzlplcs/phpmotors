@@ -2,13 +2,13 @@
 // this is the Account Model
 
 // new function will handle site registrations
-function regCLient($clientFirstname, $clientLastname, $clientEmail, $clientPassword)
+function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword)
 {
   // create connection object using the phpmotors connection function
   $db = phpmotorsConnect();
   // the SQL statement
-  $sql = 'INSERT INTO clients (clientsFirstname, clientLastname, clientEmail, clientPassword)
-              VALUES (:clientFistname, :clientLastname, : clientEmail, :clientPassword)';
+  $sql = "INSERT INTO clients (clientFirstname, clientLastname, clientEmail, clientPassword)
+              VALUES (:clientFirstname, :clientLastname, :clientEmail, :clientPassword)";
   // create the prepared statement using the phpmotors connection
   $stmt = $db->prepare($sql);
   // The next four lines replace the placeholders in the SQL
@@ -26,4 +26,4 @@ function regCLient($clientFirstname, $clientLastname, $clientEmail, $clientPassw
   $stmt->closeCursor();
   // Return the indication of success (rows changed)
   return $rowsChanged;
-};
+}
