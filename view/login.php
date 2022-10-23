@@ -14,7 +14,7 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
-      <section class="login">
+      <section class="login grid-section">
         <h1>Sign in</h1>
         <form class="form">
           <?php

@@ -19,9 +19,9 @@ $classifications = getClassifications();
 
 // Build a navigation bar using the $classifications array
 $navList = '<ul>';
-$navList .= "<li><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
+$navList .= "<li class='clean-li'><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
 foreach ($classifications as $classification) {
-  $navList .= "<li><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
+  $navList .= "<li class='clean-li'><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
 }
 $navList .= '</ul>';
 
@@ -55,7 +55,7 @@ switch ($action) {
 
     // check for missing data
     if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)) {
-      $message = '<p>Please, provide information for all empty form fields</p>';
+      $message = '<p class="warning-message">Please, provide information for all empty form fields</p>';
       include '../view/registration.php';
       exit;
     }
@@ -64,11 +64,11 @@ switch ($action) {
 
     // find out the result
     if($regOutcome === 1) {
-      $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login. </p>";
+      $message = "<p class='success-message'>Thanks for registering $clientFirstname. Please use your email and password to login. </p>";
       include '../view/login.php';
       exit;
     } else {
-      $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+      $message = "<p class='warning-message'>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
       include '../view/registration.php';
       exit;
     };

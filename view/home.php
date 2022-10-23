@@ -13,7 +13,7 @@
   <div class="container">
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
-    <main class="content">
+    <main class="content content-home">
       <section class="hero">
         <h1>Welcome to PHP Motors!</h1>
         <div class="hero__container">

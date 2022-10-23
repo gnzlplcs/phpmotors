@@ -12,6 +12,7 @@
   --color-gray-darkest: #3a3a3a;
   --color-blue-light: #a6cbeb;
   --color-blue-dark: #4c96d7;
+  --color-red-warning: rgb(190, 0, 0);
   --color-white: #ffffff;
   --font-share-tech-mono: "Share Tech Mono", monospace;
 }
@@ -30,20 +31,9 @@ body {
 
 /*
 ------------------------------
-Header Style starts here
+Atomic elements
 ------------------------------
 */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 5px;
-}
-
-.header img {
-  max-width: 175px;
-}
-
 .link-onLight:link {
   color: var(--color-gray-darkest);
   text-decoration: none;
@@ -84,6 +74,40 @@ Header Style starts here
   border-bottom: 2px var(--color-blue-dark) solid;
 }
 
+.clean-li {
+  list-style: none;
+  margin-left: 15px;
+}
+
+.success-message {
+  color: var(--color-blue-dark);
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+.warning-message {
+  color: var(--color-red-warning);
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+/*
+------------------------------
+Header Style starts here
+------------------------------
+*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+}
+
+.header img {
+  max-width: 175px;
+}
+
 /*
 ------------------------------
 NavBar Style starts here
@@ -99,11 +123,6 @@ NavBar Style starts here
 .navbar ul {
   display: flex;
   justify-content: left;
-}
-
-.navbar ul li {
-  list-style: none;
-  margin-left: 15px;
 }
 
 /*
@@ -209,7 +228,7 @@ Footer style starts here
 Login & Registration style start here
 ------------------------------
 */
-.login h1, .registration h1 {
+.login h1, .registration h1, .vehicles-man h1, .add-classification h1, .add-vehicle h1 {
   margin-bottom: 20px;
   text-align: center;
 }
@@ -221,10 +240,11 @@ Login & Registration style start here
 }
 
 .form label {
+  width: 200px;
   margin-bottom: 10px;
 }
 
-.form input {
+.form input, .form textarea, .form select {
   width: 200px;
   height: 30px;
   border: 1px solid var(--color-gray-darkest);
@@ -256,6 +276,21 @@ Login & Registration style start here
 
 /*
 ------------------------------
+Vechicles Management view style starts here
+------------------------------
+*/
+
+.vehicles-man, .add-classification {
+  margin-top: 20px;
+}
+
+.vehicles-man li {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/*
+------------------------------
 Desktop view style starts here
 ------------------------------
 */
@@ -268,6 +303,14 @@ Desktop view style starts here
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .content-home {
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr;
@@ -306,7 +349,7 @@ Desktop view style starts here
     grid-row: 2 / 3;
   }
 
-  .login, .registration {
+  .grid-section {
     grid-column: 1 / 3;
   }
 }

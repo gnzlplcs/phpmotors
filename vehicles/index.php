@@ -8,9 +8,9 @@ require_once '../model/vehicle-model.php';
 $classifications = getClassifications(); // from main-model.php
 
 $navList = '<ul>';
-$navList .= "<li><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
+$navList .= "<li class='clean-li'><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
 foreach ($classifications as $classification) {
-  $navList .= "<li><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
+  $navList .= "<li class='clean-li'><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
 }
 $navList .= '</ul>';
 
@@ -37,7 +37,7 @@ switch ($action) {
   case 'adding-classification':
     $classificationName = filter_input(INPUT_POST, 'classificationName');
     if (empty($classificationName)) {
-      $message = '<p>Please, do not let empty the field</p>';
+      $message = '<p class="warning-message">Please, do not let empty the field</p>';
       include '../view/add-classification.php';
       exit;
     }
@@ -47,7 +47,7 @@ switch ($action) {
       include '../view/vehicles-man.php';
       exit;
     } else {
-      $message = "<p>Sorry, adding $classificationName classification failed. Please try again.</p>";
+      $message = "<p class='warning-message'>Sorry, adding $classificationName classification failed. Please try again.</p>";
       include '../view/add-classification.php';
       exit;
     };
@@ -64,17 +64,17 @@ switch ($action) {
     $invColor = filter_input(INPUT_POST, 'invColor');
     $classificationId = filter_input(INPUT_POST, 'carClassification');
     if (empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invColor) || empty($classificationId)) {
-      $message = '<p>Please, provide information for all empty form fields.</p>';
+      $message = '<p class="warning-message">Please, provide information for all empty form fields.</p>';
       include '../view/add-vehicle.php';
       exit;
     }
     $regOutcome = addVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId); // from vehicle-model.php
     if ($regOutcome === 1) {
-      $message = "<p>The $invMake $invModel was added successfully!</p>";
+      $message = "<p  class='success-message'>The $invMake $invModel was added successfully!</p>";
       include '../view/add-vehicle.php';
       exit;
     } else {
-      $message = "<p>Sorry, adding vehicle failed. Please try again.</p>";
+      $message = "<p class='warning-message'>Sorry, adding vehicle failed. Please try again.</p>";
       include '../view/add-vehicle.php';
       exit;
     };

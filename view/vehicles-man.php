@@ -14,7 +14,7 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
-      <section class="vehicle-man">
+      <section class="vehicles-man grid-section">
         <h1>Vehicles Management</h1>
         <?php
         if (isset($message)) {
@@ -22,8 +22,8 @@
         }
         ?>
         <ul>
-          <li><a href="/phpmotors/vehicles/index.php?action=add-classification">Add Classification</a></li>
-          <li><a href="/phpmotors/vehicles/index.php?action=add-vehicle">Add Vehicle</a></li>
+          <li class="clean-li"><a href="/phpmotors/vehicles/index.php?action=add-classification" class="link-onLight">Add Classification</a></li>
+          <li class="clean-li"><a href="/phpmotors/vehicles/index.php?action=add-vehicle" class="link-onLight">Add Vehicle</a></li>
         </ul>
       </section>
     </main>
