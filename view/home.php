@@ -11,12 +11,8 @@
 
 <body>
   <div class="container">
-    <header class="header">
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
-    </header>
-    <nav class="navbar">
-      <?php echo $navList; ?>
-    </nav>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
       <section class="hero">
         <h1>Welcome to PHP Motors!</h1>
@@ -80,9 +76,7 @@
         </div>
       </section>
     </main>
-    <footer class="footer">
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
-    </footer>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>
 </body>
 

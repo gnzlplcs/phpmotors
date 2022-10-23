@@ -11,20 +11,15 @@
 
 <body>
   <div class="container">
-    <header class="header">
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
-    </header>
-    <nav class="navbar">
-      <!-- <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?> -->
-      <?php echo $navList; ?>
-    </nav>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
       <section class="registration">
         <h1>Registration</h1>
         <?php
-          if (isset($message)) {
-            echo $message;
-          }
+        if (isset($message)) {
+          echo $message;
+        }
         ?>
         <form class="form" method="post" action="/phpmotors/accounts/index.php">
           <label for="registration-firstname">First name<br>
@@ -43,14 +38,12 @@
           <a class="link-onLight" href="#">Show password</a>
           <input class="submitBtn" type="submit" id="registration-submit" name="submit" value="Register">
           <!-- Add the action name - value pair -->
-          <input type="hidden" name="action" value="register" >
+          <input type="hidden" name="action" value="register">
           <a href="/phpmotors/accounts/index.php?action=login" class="link-onLight">Already have an account? <strong>Log in</strong></a>
         </form>
       </section>
     </main>
-    <footer class="footer">
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
-    </footer>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>
 </body>
 

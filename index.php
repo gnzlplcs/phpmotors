@@ -36,12 +36,9 @@ switch ($action) {
   case 'template':
     include 'view/template.php';
     break;
-  // case 'login':
-  //   include 'view/login.php';
-  //   break;
-  // case 'registration':
-  //   include 'view/registration.php';
-  //   break;
+  case 'vehicles-man':
+    include 'view/vehicles-man.php';
+    break;
   default:
     include 'view/home.php';
 }

@@ -11,19 +11,12 @@
 
 <body>
   <div class="container">
-    <header class="header">
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
-    </header>
-    <nav class="navbar">
-      <!-- <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?> -->
-      <?php echo $navList; ?>
-    </nav>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
       <h1>Content goes here</h1>
     </main>
-    <footer class="footer">
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
-    </footer>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>
 </body>
 

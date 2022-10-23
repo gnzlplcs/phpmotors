@@ -30,7 +30,6 @@ $navList .= '</ul>';
 
 
 $action = filter_input(INPUT_POST, 'action');
-
 if ($action == NULL) {
   $action = filter_input(INPUT_GET, 'action');
 }
@@ -39,9 +38,11 @@ switch ($action) {
   case 'login':
     include '../view/login.php';
     break;
+
   case 'registration':
     include '../view/registration.php';
     break;
+    
   case 'register':
     // time to test
     // echo 'You are in the register case'
