@@ -34,10 +34,10 @@
           <textarea name="invDescription" id="invDescription" rows="5"></textarea>
         </label>
         <label for="invImage">Add an image path<br>
-          <input type="text" name="invImage" id="invImage" >
+          <input type="text" name="invImage" id="invImage" value="/images/no-image.png">
         </label>
         <label for="invThumbnail">Add an image thumbnail<br>
-          <input type="text" name="invThumbnail" id="invThumbnail" >
+          <input type="text" name="invThumbnail" id="invThumbnail" value="/images/no-image.png">
         </label>
         <label for="invPrice">Add the car's price<br>
           <input type="number" name="invPrice" id="invPrice" min="0" step="5">

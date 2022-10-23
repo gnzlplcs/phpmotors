@@ -16,7 +16,7 @@ $classifications = getClassifications();
 
 // Build a navigation bar using the $classifications array
 $navList = '<ul>';
-$navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
+$navList .= "<li><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
 foreach ($classifications as $classification) {
   $navList .= "<li><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
 }
@@ -36,9 +36,9 @@ switch ($action) {
   case 'template':
     include 'view/template.php';
     break;
-  case 'vehicles-man':
-    include 'view/vehicles-man.php';
+  case 'home':
+    include 'view/home.php';
     break;
   default:
-    include 'view/home.php';
+    include 'view/vehicles-man.php';
 }

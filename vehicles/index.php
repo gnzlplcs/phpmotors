@@ -8,7 +8,7 @@ require_once '../model/vehicle-model.php';
 $classifications = getClassifications(); // from main-model.php
 
 $navList = '<ul>';
-$navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
+$navList .= "<li><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
 foreach ($classifications as $classification) {
   $navList .= "<li><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
 }
@@ -43,7 +43,7 @@ switch ($action) {
     }
     $regOutcome = addClassification($classificationName); // from vehicle-model.php
     if ($regOutcome === 1) {
-      $message = "<p>Thanks for adding $classificationName classification.</p>";
+      // $message = "<p>Thanks for adding $classificationName classification.</p>";
       include '../view/vehicles-man.php';
       exit;
     } else {
@@ -70,8 +70,8 @@ switch ($action) {
     }
     $regOutcome = addVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId); // from vehicle-model.php
     if ($regOutcome === 1) {
-      $message = "<p>Thanks for adding vehicle.</p>";
-      include '../view/vehicles-man.php';
+      $message = "<p>The $invMake $invModel was added successfully!</p>";
+      include '../view/add-vehicle.php';
       exit;
     } else {
       $message = "<p>Sorry, adding vehicle failed. Please try again.</p>";
