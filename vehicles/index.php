@@ -44,7 +44,8 @@ switch ($action) {
     $regOutcome = addClassification($classificationName); // from vehicle-model.php
     if ($regOutcome === 1) {
       // $message = "<p>Thanks for adding $classificationName classification.</p>";
-      include '../view/vehicles-man.php';
+      // include '../view/vehicles-man.php';
+      header('Location: /phpmotors/vehicles/index.php');
       exit;
     } else {
       $message = "<p class='warning-message'>Sorry, adding $classificationName classification failed. Please try again.</p>";
