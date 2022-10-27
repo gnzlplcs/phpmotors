@@ -10,6 +10,9 @@ require_once '../model/main-model.php';
 // Get the accounts model
 require_once '../model/account-model.php';
 
+// Get the function library
+require_once '../library/functions.php';
+
 // Get the array of classifications
 $classifications = getClassifications();
 
@@ -52,6 +55,7 @@ switch ($action) {
     $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
     $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $clientEmail = checkEmail($clientEmail);
 
     // check for missing data
     if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)) {
