@@ -64,8 +64,11 @@ switch ($action) {
       include '../view/registration.php';
       exit;
     }
+    // hash the checked password
+    $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+
     // attempt the insert
-    $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
+    $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);
 
     // find out the result
     if ($regOutcome === 1) {
