@@ -56,9 +56,10 @@ switch ($action) {
     $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
     $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientEmail = checkEmail($clientEmail);
+    $checkPassword = checkPassword($clientPassword);
 
     // check for missing data
-    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)) {
+    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)) {
       $message = '<p class="warning-message">Please, provide information for all empty form fields</p>';
       include '../view/registration.php';
       exit;
