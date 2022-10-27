@@ -46,8 +46,8 @@
               name="clientEmail"
               id="registration-email"
               placeholder="john.doe@email.com"
-              <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>
-              required >
+              required
+              <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> >
           </label>
           <p class="password--instructions">There must be 8 characters, any of which may be numbers, any may be non-alphanumeric characters, they may be in any order and can include any number of capital and lower case letters.</p>
           <label for="registration-password">Password<br>
