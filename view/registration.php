@@ -31,9 +31,9 @@
           <label for="registration-email">Email<br>
             <input type="email" name="clientEmail" id="registration-email" placeholder="john.doe@email.com" required>
           </label>
-          <p class="registration-password--instructions">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter, and 1 special character</p>
+          <p class="password--instructions">There must be 8 characters, any of which may be numbers, any may be non-alphanumeric characters, they may be in any order and can include any number of capital and lower case letters.</p>
           <label for="registration-password">Password<br>
-            <input type="password" name="clientPassword" id="registration-password" placeholder="Enter a password" required>
+            <input type="password" name="clientPassword" id="registration-password" placeholder="Enter a password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
           </label>
           <a class="link-onLight" href="#">Show password</a>
           <input class="submitBtn" type="submit" id="registration-submit" name="submit" value="Register">

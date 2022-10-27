@@ -25,8 +25,9 @@
           <label for="user-email">Email<br>
             <input type="text" name="user-email" id="user-email" placeholder="john.doe@email.com" required>
           </label>
+          <p class="password--instructions">There must be 8 characters, any of which may be numbers, any may be non-alphanumeric characters, they may be in any order and can include any number of capital and lower case letters.</p>
           <label for="user-password">Password<br>
-            <input type="password" name="user-password" id="user-password" required>
+            <input type="password" name="user-password" id="user-password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
           </label>
           <input class="submitBtn" type="submit" id="login-submit" value="Sign-in">
           <a href="/phpmotors/accounts/index.php?action=registration" class="link-onLight">Not a member yet?</a>

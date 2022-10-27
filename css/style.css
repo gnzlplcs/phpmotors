@@ -258,7 +258,7 @@ Login & Registration style start here
   text-align: center;
 }
 
-.registration-password--instructions {
+.password--instructions {
   font-size: .8rem;
   max-width: 200px;
   margin-bottom: 5px;;
