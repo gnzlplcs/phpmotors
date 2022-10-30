@@ -16,21 +16,7 @@ require_once '../library/functions.php';
 // Get the array of classifications
 $classifications = getClassifications();
 
-// Testing (like JS's console.log)
-// var_dump($classifications);
-//   exit;
-
-// Build a navigation bar using the $classifications array
-$navList = '<ul>';
-$navList .= "<li class='clean-li'><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
-foreach ($classifications as $classification) {
-  $navList .= "<li class='clean-li'><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-}
-$navList .= '</ul>';
-
-// echo $navList;
-// exit;
-
+$navList = showNavList($classifications);
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -47,9 +33,6 @@ switch ($action) {
     break;
 
   case 'register':
-    // time to test
-    // echo 'You are in the register case'
-
     // filter and store the data
     $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -82,7 +65,8 @@ switch ($action) {
     };
     break;
 
-  case 'Login';
+
+  case 'Login':
     $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
     $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     $clientEmail = checkEmail($clientEmail);

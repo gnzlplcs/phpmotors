@@ -22,39 +22,39 @@
         }
         ?>
         <form class="form" method="post" action="/phpmotors/accounts/index.php">
-          <label for="registration-firstname">First name<br>
+          <label for="clientFirstname">First name<br>
             <input
               type="text"
               name="clientFirstname"
-              id="registration-firstname"
+              id="clientFirstname"
               placeholder="John"
               <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>
               required >
           </label>
-          <label for="registration-lastname">Last name<br>
+          <label for="clientLastname">Last name<br>
             <input
               type="text"
               name="clientLastname"
-              id="registration-lastname"
+              id="clientLastname"
               placeholder="Doe"
               <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>
               required >
           </label>
-          <label for="registration-email">Email<br>
+          <label for="clientEmail">Email<br>
             <input
               type="email"
               name="clientEmail"
-              id="registration-email"
+              id="clientEmail"
               placeholder="john.doe@email.com"
               required
               <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> >
           </label>
           <p class="password--instructions">There must be 8 characters, any of which may be numbers, any may be non-alphanumeric characters, they may be in any order and can include any number of capital and lower case letters.</p>
-          <label for="registration-password">Password<br>
+          <label for="clientPassword">Password<br>
             <input
               type="password"
               name="clientPassword"
-              id="registration-password"
+              id="clientPassword"
               placeholder="Enter a password"
               required
               pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" >

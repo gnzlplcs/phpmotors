@@ -22,8 +22,15 @@
         }
         ?>
         <form class="form" method="post" action="/phpmotors/vehicles/index.php">
-          <label for="classificationName">Add a new car classification<br>
-            <input type="text" placeholder="E.g. School Bus, Family Car" id="classificationName" name="classificationName">
+          <label for="classificationName">Car classification should have max 30 characters.<br>
+            <input
+              type="text"
+              placeholder="E.g. School Bus, Family Car"
+              id="classificationName"
+              name="classificationName"
+              pattern="(?=^.{0,30}$).*$"
+              required
+              <?php if(isset($classificationName)) {echo "value='$classificationName'";} ?> >
           </label>
           <input class="submitBtn" type="submit" id="add-classification-submit" name="add-classification-submit" value="Add Classification">
           <input type="hidden" name="action" value="adding-classification">

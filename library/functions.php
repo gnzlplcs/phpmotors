@@ -14,3 +14,15 @@ function checkPassword($clientPassword)
   $pattern = '/^(?=.*[[:digit:]])(?=.*[[:punct:]\s])(?=.*[A-Z])(?=.*[a-z])(?:.{8,})$/';
   return preg_match($pattern, $clientPassword);
 }
+
+// this function receives an array of nav items as parameter, and returns it as an ul html element
+function showNavList($classifications)
+{
+  $navList = '<ul>';
+  $navList .= "<li class='clean-li'><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
+  foreach ($classifications as $classification) {
+    $navList .= "<li class='clean-li'><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
+  }
+  $navList .= '</ul>';
+  return $navList;
+}

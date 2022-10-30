@@ -22,15 +22,15 @@
             echo $message;
           }
           ?>
-          <label for="user-email">Email<br>
-            <input type="email" name="clientEmail" id="user-email" placeholder="john.doe@email.com" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> >
+          <label for="clientEmail">Email<br>
+            <input type="email" name="clientEmail" id="clientEmail" placeholder="john.doe@email.com" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> >
           </label>
           <p class="password--instructions">There must be 8 characters, any of which may be numbers, any may be non-alphanumeric characters, they may be in any order and can include any number of capital and lower case letters.</p>
-          <label for="user-password">Password<br>
+          <label for="clientPassword">Password<br>
             <input
               type="password"
               name="clientPassword"
-              id="user-password"
+              id="clientPassword"
               required
               pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
           </label>

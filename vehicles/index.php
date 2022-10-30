@@ -2,23 +2,14 @@
 // This is the vehicle controller
 
 require_once '../library/connections.php';
+require_once '../library/functions.php';
 require_once '../model/main-model.php';
 require_once '../model/vehicle-model.php';
 
 $classifications = getClassifications(); // from main-model.php
 
-$navList = '<ul>';
-$navList .= "<li class='clean-li'><a href='/phpmotors/index.php?action=home' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
-foreach ($classifications as $classification) {
-  $navList .= "<li class='clean-li'><a class='link-onDark' href='/phpmotors/index.php?action=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-}
-$navList .= '</ul>';
+$navList = showNavList($classifications);
 
-$classificationsList = '<select name="carClassification">';
-foreach ($classifications as $classification) {
-  $classificationsList .= '<option value="' . $classification['classificationId'] . '">' . $classification['classificationName'] . '</option>';
-}
-$classificationsList .= '</select>';
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -35,7 +26,7 @@ switch ($action) {
     break;
 
   case 'adding-classification':
-    $classificationName = filter_input(INPUT_POST, 'classificationName');
+    $classificationName = trim(filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     if (empty($classificationName)) {
       $message = '<p class="warning-message">Please, do not let empty the field</p>';
       include '../view/add-classification.php';
@@ -55,15 +46,15 @@ switch ($action) {
     break;
 
   case 'adding-vehicle':
-    $invMake = filter_input(INPUT_POST, 'invMake');
-    $invModel = filter_input(INPUT_POST, 'invModel');
-    $invDescription = filter_input(INPUT_POST, 'invDescription');
-    $invImage = filter_input(INPUT_POST, 'invImage');
-    $invThumbnail = filter_input(INPUT_POST, 'invThumbnail');
-    $invPrice = filter_input(INPUT_POST, 'invPrice');
-    $invStock = filter_input(INPUT_POST, 'invStock');
-    $invColor = filter_input(INPUT_POST, 'invColor');
-    $classificationId = filter_input(INPUT_POST, 'carClassification');
+    $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invImage = trim(filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invThumbnail = trim(filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invPrice = trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+    $invStock = trim(filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT));
+    $invColor = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $classificationId = trim(filter_input(INPUT_POST, 'carClassification', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     if (empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invColor) || empty($classificationId)) {
       $message = '<p class="warning-message">Please, provide information for all empty form fields.</p>';
       include '../view/add-vehicle.php';
@@ -72,7 +63,8 @@ switch ($action) {
     $regOutcome = addVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId); // from vehicle-model.php
     if ($regOutcome === 1) {
       $message = "<p  class='success-message'>The $invMake $invModel was added successfully!</p>";
-      include '../view/add-vehicle.php';
+      // include '../view/add-vehicle.php';
+      include '../view/vehicles-man.php';
       exit;
     } else {
       $message = "<p class='warning-message'>Sorry, adding vehicle failed. Please try again.</p>";
