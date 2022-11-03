@@ -65,7 +65,7 @@ switch ($action) {
 
     // find out the result
     if ($regOutcome === 1) {
-      $message = "<p class='success-message'>Thanks for registering $clientFirstname. Please use your email and password to login. </p>";
+      setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
       include '../view/login.php';
       exit;
     } else {
