@@ -41,12 +41,22 @@ switch ($action) {
     $clientEmail = checkEmail($clientEmail);
     $checkPassword = checkPassword($clientPassword);
 
+    // checking an existing address
+    $existingEmail = checkExistingEmail($clientEmail);
+
+    if ($existingEmail) {
+      $message = '<p class="success-message">That email address already exists. <br>Do you want to login instead?</p>';
+      include '../view/login.php';
+      exit;
+    }
+
     // check for missing data
     if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)) {
       $message = '<p class="warning-message">Please, provide information for all empty form fields</p>';
       include '../view/registration.php';
       exit;
     }
+
     // hash the checked password
     $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
 
