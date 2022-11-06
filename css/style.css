@@ -15,6 +15,7 @@
   --color-red-warning: rgb(190, 0, 0);
   --color-white: #ffffff;
   --font-share-tech-mono: "Share Tech Mono", monospace;
+  --width-form: 300px;
 }
 
 body {
@@ -173,7 +174,7 @@ section {
 }
 
 .hero__btnContainer--one img {
-  max-width: 200px;
+  max-width: var(--width-form);
 }
 
 .reviews__list {
@@ -240,19 +241,19 @@ Login & Registration style start here
 }
 
 .form label {
-  width: 200px;
+  width: var(--width-form);
   margin-bottom: 10px;
 }
 
 .form input, .form select {
-  width: 200px;
+  width: var(--width-form);
   height: 30px;
   border: 1px solid var(--color-gray-darkest);
 }
 
 .form textarea {
-  width: 200px;
-  height: 200px;
+  width: var(--width-form);
+  height: var(--width-form);
   border: 1px solid var(--color-gray-darkest);
 }
 
@@ -266,13 +267,13 @@ Login & Registration style start here
 
 .password--instructions {
   font-size: .8rem;
-  max-width: 200px;
+  max-width: var(--width-form);
   margin-bottom: 5px;;
 }
 
 .submitBtn {
   margin: 20px 0px;
-  max-width: 200px;
+  max-width: var(--width-form);
   padding: 5px 10px;
   font-size: 1rem;
   background-color: var(--color-blue-dark);

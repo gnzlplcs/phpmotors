@@ -16,12 +16,12 @@
     <main class="content">
       <section class="login grid-section">
         <h1>Sign in</h1>
-        <form class="form">
-          <?php
-          if (isset($message)) {
-            echo $message;
-          }
-          ?>
+        <?php
+        if (isset($_SESSION['message'])) {
+          echo $_SESSION['message'];
+        }
+        ?>
+        <form class="form" method="post" action="/phpmotors/accounts/">
           <label for="clientEmail">Email<br>
             <input type="email" name="clientEmail" id="clientEmail" placeholder="john.doe@email.com" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> >
           </label>

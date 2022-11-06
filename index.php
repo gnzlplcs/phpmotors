@@ -1,6 +1,9 @@
 <?php
 // This is the main controller for the site
 
+// Create or access a Session
+session_start();
+
 // Get the database connection file
 require_once 'library/connections.php';
 
@@ -29,9 +32,9 @@ switch ($action) {
   case 'template':
     include 'view/template.php';
     break;
-  case 'home':
-    include 'view/home.php';
+  case 'vehicles':
+    include 'view/vehicles.php';
     break;
   default:
-    include 'view/vehicles-man.php';
+    include 'view/home.php';
 }
