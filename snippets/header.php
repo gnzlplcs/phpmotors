@@ -1,9 +1,15 @@
 <header class="header">
   <img src="/phpmotors/images/site/logo.png" alt="PHP Motors logo">
   <div class="header__login">
-    <?php  if(isset($cookieFirstname)) {
-      echo "<span>Welcome $cookieFirstname | </span>";
-    }?>
-    <a href="/phpmotors/accounts/index.php?action=login" class="link-onLight">My Account</a>
+    <?php if (isset($_SESSION['clientData'])) {
+      $clientFirstname = $_SESSION['clientData']['clientFirstname'];
+      $welcomeMessage = "<span>Welcome $clientFirstname | </span>";
+      $welcomeMessage .= "<a href='/phpmotors/accounts/index.php?action=Logout' class='link-onLight'>Log out</a>";
+      echo $welcomeMessage;
+    } else {
+      $noLoggedMessage = "<a href='/phpmotors/accounts/index.php?action=login' class='link-onLight'>My Account</a>";
+      echo $noLoggedMessage;
+    }
+    ?>
   </div>
 </header>

@@ -35,6 +35,10 @@ switch ($action) {
     include '../view/registration.php';
     break;
 
+  case 'admin':
+    include '../view/admin.php';
+    break;
+
   case 'register':
     // filter and store the data
     $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -122,6 +126,13 @@ switch ($action) {
     // Send them to the admin view
     include '../view/admin.php';
     exit;
+    break;
+  case 'Logout':
+    if($_SESSION['clientData']) {
+      unset($_SESSION['clientData']);
+    }
+    session_destroy();
+    include '../view/home.php';
     break;
   default:
     include '../view/login.php';
