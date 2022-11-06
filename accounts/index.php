@@ -77,7 +77,7 @@ switch ($action) {
       header('Location: /phpmotors/accounts/?action=login');
       exit;
     } else {
-      $message = "<p class='warning-message'>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+      $_SESSION['message'] = "<p class='warning-message'>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
       include '../view/registration.php';
       exit;
     };
@@ -91,7 +91,7 @@ switch ($action) {
 
     // check for missing data
     if (empty($clientEmail) || empty($checkPassword)) {
-      $message = '<p class="warning-message">Provided information is not correct. Please, enter again.</p>';
+      $_SESSION['message'] = '<p class="warning-message">Provided information is not correct. Please, enter again.</p>';
       include '../view/login.php';
       exit;
     }
@@ -100,14 +100,12 @@ switch ($action) {
     // Query the client data based on the email address
     $clientData = getClient($clientEmail);
 
-    // Compare the password just submitted against
-    // the hashed password for the matching client
+    // Compare the password just submitted against the hashed password for the matching client
     $hashCheck = password_verify($clientPassword, $clientData['clientPassword']);
 
-    // If the hashes don't match create an error
-    // and return to the login view
+    // If the hashes don't match create an error and return to the login view
     if (!$hashCheck) {
-      $message = '<p class="warning-message">Please, check your password and try again.</p>';
+      $_SESSION['message'] = '<p class="warning-message">Please, check your password and try again.</p>';
       include '../view/login.php';
       exit;
     }
@@ -115,16 +113,14 @@ switch ($action) {
     // A valid user exists, log them in
     $_SESSION['loggedin'] = TRUE;
 
-    // Remove the password from the array
-    // the array_prop function removes the last
-    // element from an array
+    // Remove the password from the array the array_prop function removes the last element from an array
     array_pop($clientData);
 
     // Store the array into a session
     $_SESSION['clientData'] = $clientData;
 
     // Send them to the admin view
-    include '../view/admin.php';
+    include '../view/home.php';
     exit;
     break;
   case 'Logout':

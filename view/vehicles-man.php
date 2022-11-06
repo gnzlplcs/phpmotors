@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+  $clientLevel = $_SESSION['clientData']['clientLevel'];
+  if ($clientLevel == 1) {
+    header('Location: /phpmotors/index.php');
+    exit;
+  }
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>

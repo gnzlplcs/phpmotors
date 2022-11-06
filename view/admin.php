@@ -1,9 +1,8 @@
 <?php
-  if(!$_SESSION['loggedin']) {
-    header('Location: /phpmotors/index.php');
-    exit;
-  }
-
+if (!$_SESSION['loggedin']) {
+  header('Location: /phpmotors/index.php');
+  exit;
+}
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -21,19 +20,23 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
       <?php
-        $clientFirstname = $_SESSION['clientData']['clientFirstname'];
-        $clientLastname = $_SESSION['clientData']['clientLastname'];
-        $clientEmail = $_SESSION['clientData']['clientEmail'];
-        $clientLevel = $_SESSION['clientData']['clientLevel'];
-        echo "<h1>$clientFirstname $clientLastname</h1>";
-        $userData = '<ul>';
-        $userData .= "<li>Name: $clientFirstname $clientLastname</li>";
-        $userData .= "<li>Email: $clientEmail</li>";
-        if ($clientLevel > 1) {
-          $userData .= "<li>Level: $clientLevel</li>";
-        }
-        $userData .= '</ul>';
-        echo $userData;
+      $clientFirstname = $_SESSION['clientData']['clientFirstname'];
+      $clientLastname = $_SESSION['clientData']['clientLastname'];
+      $clientEmail = $_SESSION['clientData']['clientEmail'];
+      $clientLevel = $_SESSION['clientData']['clientLevel'];
+      echo "<h1>$clientFirstname $clientLastname</h1>";
+      $userData = '<ul>';
+      $userData .= "<li>Name: $clientFirstname $clientLastname</li>";
+      $userData .= "<li>Email: $clientEmail</li>";
+      if ($clientLevel > 1) {
+        $userData .= "<li>Level: $clientLevel</li>";
+      }
+      $userData .= '</ul>';
+      echo $userData;
+      if ($clientLevel > 1) {
+        $vehicleManLink = "<a href='/phpmotors/vehicles/index.php?action=vehicles-man' class='link-onLight'>Vehicle Management</a>";
+        echo $vehicleManLink;
+      }
       ?>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>

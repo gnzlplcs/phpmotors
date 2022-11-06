@@ -1,5 +1,6 @@
 <?php
 // This is the vehicle controller
+session_start();
 
 require_once '../library/connections.php';
 require_once '../library/functions.php';
@@ -23,6 +24,10 @@ switch ($action) {
 
   case 'add-vehicle':
     include '../view/add-vehicle.php';
+    break;
+
+  case 'vehicles-man':
+    include '../view/vehicles-man.php';
     break;
 
   case 'adding-classification':
