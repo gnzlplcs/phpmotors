@@ -78,6 +78,7 @@ Atomic elements
 .clean-li {
   list-style: none;
   margin-left: 15px;
+  margin-bottom: 15px;
 }
 
 .success-message {
@@ -229,7 +230,7 @@ Footer style starts here
 Login & Registration style start here
 ------------------------------
 */
-.login h1, .registration h1, .vehicles-man h1, .add-classification h1, .add-vehicle h1 {
+.login h1, .registration h1, .admin h1, .vehicles-man h1, .add-classification h1, .add-vehicle h1 {
   margin-bottom: 20px;
   text-align: center;
 }
