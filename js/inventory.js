@@ -1,7 +1,7 @@
 "use strict";
 
 // Get a list of vehicles in inventory based on the classificationId
-let classificationList = document.getElementById("classificationList");
+let classificationList = document.querySelector("#classificationList");
 classificationList.addEventListener("change", () => {
   let classificationId = classificationList.value;
   console.log(`classificationId is: ${classificationId}`);

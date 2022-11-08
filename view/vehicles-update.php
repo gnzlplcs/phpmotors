@@ -1,5 +1,5 @@
 <?php
-  $classificationsList = '<select name="carClassification" id="classificationId">';
+  $classificationsList = '<select name="carClassification" >';
   $classificationsList .= '<option>Choose an option</option>';
   foreach ($classifications as $classification) {
     $classificationsList .= "<option value='$classification[classificationId]'";
@@ -140,6 +140,12 @@
           </label>
           <input class="submitBtn" type="submit" id="add-vehicle-submit" name="update-vehicle-submit" value="Update vehicle">
           <input type="hidden" name="action" value="updateVehicle">
+          <input type="hidden" name="invId" value="<?php
+            if(isset($invInfo['invId'])){
+              echo $invInfo['invId'];
+            } elseif(isset($invId)){
+              echo $invId;
+              } ?>" >
         </form>
       </section>
     </main>
