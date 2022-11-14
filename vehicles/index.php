@@ -128,7 +128,7 @@ switch ($action) {
     }
     $updateResult = updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId, $invId);
     echo $updateResult;
-    if ($updateResult) {
+    if ($updateResult == 1) {
       $message = "<p class='success-message'>Congratulations, the $invMake $invModel was successfully updated.</p>";
       $_SESSION['message'] = $message;
       header('Location: /phpmotors/vehicles/');
@@ -157,6 +157,7 @@ switch ($action) {
 
   default:
     $classificationList = buildClassificationList($classifications);
-
     include '../view/vehicles-man.php';
+    exit;
+    break;
 }

@@ -3,6 +3,7 @@ if (!$_SESSION['loggedin']) {
   header('Location: /phpmotors/index.php');
   exit;
 }
+$clientData = $_SESSION['clientData'];
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -21,18 +22,24 @@ if (!$_SESSION['loggedin']) {
     <main class="content">
       <section class="admin grid-section">
         <?php
-        $clientFirstname = $_SESSION['clientData']['clientFirstname'];
-        $clientLastname = $_SESSION['clientData']['clientLastname'];
-        $clientEmail = $_SESSION['clientData']['clientEmail'];
-        $clientLevel = $_SESSION['clientData']['clientLevel'];
+        $clientFirstname = $clientData['clientFirstname'];
+        $clientLastname = $clientData['clientLastname'];
+        $clientEmail = $clientData['clientEmail'];
+        $clientLevel = $clientData['clientLevel'];
         echo "<h1>$clientFirstname $clientLastname</h1>";
+        echo "<p>You are logged in</p>";
+        if (isset($_SESSION['message'])) {
+          echo $_SESSION['message'];
+        };
         $userData = '<ul>';
         $userData .= "<li class='clean-li'>Name: $clientFirstname $clientLastname</li>";
         $userData .= "<li class='clean-li'>Email: $clientEmail</li>";
         if ($clientLevel > 1) {
           $userData .= "<li class='clean-li'>Level: $clientLevel</li>";
+          $userData .= "<li class='clean-li'>You should use this link to administer inventory</li>";
           $userData .= "<li class='clean-li'><a href='/phpmotors/vehicles/index.php?action=vehicles-man' class='link-onLight'>Vehicle Management</a></li>";
         }
+        $userData .= "<li class='clean-li'><a href='/phpmotors/accounts/index.php?action=client-update' class='link-onLight'>Update account information</a></li>";
         $userData .= '</ul>';
         echo $userData;
         ?>
@@ -43,3 +50,4 @@ if (!$_SESSION['loggedin']) {
 </body>
 
 </html>
+<?php unset($_SESSION['message']); ?>

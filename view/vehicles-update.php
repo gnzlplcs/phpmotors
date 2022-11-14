@@ -1,4 +1,7 @@
 <?php
+  if($_SESSION['loggedin'] != TRUE || $_SESSION['clientData']['clienteLevel'] < 2) {
+    header("Location: ../");
+  }
   $classificationsList = '<select name="carClassification" >';
   $classificationsList .= '<option>Choose an option</option>';
   foreach ($classifications as $classification) {
