@@ -20,30 +20,35 @@ $clientData = $_SESSION['clientData'];
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
-      <section class="admin grid-section">
-        <?php
-        $clientFirstname = $clientData['clientFirstname'];
-        $clientLastname = $clientData['clientLastname'];
-        $clientEmail = $clientData['clientEmail'];
-        $clientLevel = $clientData['clientLevel'];
-        echo "<h1>$clientFirstname $clientLastname</h1>";
-        echo "<p>You are logged in</p>";
-        if (isset($_SESSION['message'])) {
-          echo $_SESSION['message'];
-        };
-        $userData = '<ul>';
-        $userData .= "<li class='clean-li'>Name: $clientFirstname $clientLastname</li>";
-        $userData .= "<li class='clean-li'>Email: $clientEmail</li>";
-        if ($clientLevel > 1) {
-          $userData .= "<li class='clean-li'>Level: $clientLevel</li>";
-          $userData .= "<li class='clean-li'>You should use this link to administer inventory</li>";
-          $userData .= "<li class='clean-li'><a href='/phpmotors/vehicles/index.php?action=vehicles-man' class='link-onLight'>Vehicle Management</a></li>";
-        }
-        $userData .= "<li class='clean-li'><a href='/phpmotors/accounts/index.php?action=client-update' class='link-onLight'>Update account information</a></li>";
-        $userData .= '</ul>';
-        echo $userData;
-        ?>
-      </section>
+
+      <?php
+      $clientFirstname = $clientData['clientFirstname'];
+      $clientLastname = $clientData['clientLastname'];
+      $clientEmail = $clientData['clientEmail'];
+      $clientLevel = $clientData['clientLevel'];
+      echo "<section class='admin grid-section'><h1>$clientFirstname $clientLastname</h1>";
+      echo "<p>You are logged in</p>";
+      if (isset($_SESSION['message'])) {
+        echo $_SESSION['message'];
+      };
+      $userData = '<ul>';
+      $userData .= "<li class='clean-li'>Name: $clientFirstname $clientLastname</li>";
+      $userData .= "<li class='clean-li'>Email: $clientEmail</li>";
+      if ($clientLevel > 1) {
+        $userData .= "<li class='clean-li'>Level: $clientLevel</li>";
+      }
+      $userData .= "<li class='clean-li linkCTA'><a class='link-onLight' href='/phpmotors/accounts/index.php?action=client-update' >Update account information</a></li>";
+      $userData .= '</ul></section>';
+      echo $userData;
+      if ($clientLevel > 1) {
+        echo "<section class='admin grid-section'><h2>Admin Zone</h2>";
+        $adminZone = "<ul>";
+        $adminZone .= "<li class='clean-li'>Click to administer inventory</li>";
+        $adminZone .= "<li class='clean-li linkCTA'><a class='link-onLight' href='/phpmotors/vehicles/index.php?action=vehicles-man' >Vehicle Management</a></li>";
+        $adminZone .= "</ul></section>";
+        echo $adminZone;
+      }
+      ?>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>

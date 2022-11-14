@@ -55,6 +55,10 @@ Atomic elements
   border-bottom: 2px var(--color-gray-darker) solid;
 }
 
+.linkCTA {
+  margin: 5px 0;
+}
+
 .link-onDark:link {
   color: var(--color-white);
   text-decoration: none;
@@ -93,6 +97,9 @@ Atomic elements
   margin: 15px 0;
 }
 
+.mg-left {
+  margin-left: 15px;
+}
 /*
 ------------------------------
 Header Style starts here
@@ -134,6 +141,10 @@ Content style starts here
 
 section {
   padding: 20px 10px;
+}
+
+section h2 {
+  text-align: center;
 }
 
 .content section {
@@ -229,7 +240,7 @@ Footer style starts here
 Login & Registration style start here
 ------------------------------
 */
-.login h1, .registration h1, .admin h1, .vehicles-man h1, .add-classification h1, .add-vehicle h1 {
+.login h1, .registration h1, .admin h1, .vehicles-man h1, .add-classification h1, .add-vehicle h1, .vehicles-man h1 {
   margin-bottom: 20px;
   text-align: center;
 }
@@ -245,7 +256,7 @@ Login & Registration style start here
   margin-bottom: 10px;
 }
 
-.form input, .form select {
+.form input, .selectForm {
   width: var(--width-form);
   height: 30px;
   border: 1px solid var(--color-gray-darkest);

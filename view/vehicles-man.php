@@ -24,7 +24,13 @@ if (isset($_SESSION['message'])) {
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
       <section class="vehicles-man grid-section">
-        <h1>Vehicles Management</h1>
+        <h2>Vehicles Management</h2>
+        <ul>
+          <li class="clean-li"><a href="/phpmotors/vehicles/index.php?action=add-classification" class="link-onLight">Add Classification</a></li>
+          <li class="clean-li"><a href="/phpmotors/vehicles/index.php?action=add-vehicle" class="link-onLight">Add Vehicle</a></li>
+        </ul>
+      </section>
+      <section class="vehicles-man grid-section">
         <?php
         if (isset($message)) {
           echo $message;
@@ -39,10 +45,6 @@ if (isset($_SESSION['message'])) {
           <p><strong>JavaScript Must Be Enabled to Use this Page.</strong></p>
         </noscript>
         <table id="inventoryDisplay"></table>
-        <ul>
-          <li class="clean-li"><a href="/phpmotors/vehicles/index.php?action=add-classification" class="link-onLight">Add Classification</a></li>
-          <li class="clean-li"><a href="/phpmotors/vehicles/index.php?action=add-vehicle" class="link-onLight">Add Vehicle</a></li>
-        </ul>
       </section>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>

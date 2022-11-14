@@ -1,8 +1,9 @@
 <?php
-  if($_SESSION['loggedin'] != TRUE || $_SESSION['clientData']['clienteLevel'] < 2) {
-    header("Location: ../");
-  }
-  $classificationsList = '<select name="carClassification" >';
+  if ($_SESSION['clientData']['clientLevel'] < 2) {
+  header('Location: /phpmotors/');
+  exit;
+}
+  $classificationsList = '<select name="carClassification" class="selectForm">';
   $classificationsList .= '<option>Choose an option</option>';
   foreach ($classifications as $classification) {
     $classificationsList .= "<option value='$classification[classificationId]'";

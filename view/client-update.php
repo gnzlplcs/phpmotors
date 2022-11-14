@@ -24,54 +24,31 @@ if (isset($_SESSION['message'])) {
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
       <h1>Update account</h1>
+      <?php if (isset($message)) { echo $message; } ?>
+      
+      <!-- Update account information Form -->
       <form class="form" method="post" action="/phpmotors/accounts/index.php">
-        <?php
-          if (isset($message)) {
-            echo $message;
-          }
-        ?>
         <h2>Update name and email account</h2>
         <label for="clientFirstname">First name
-          <input
-            type="text"
-            name="clientFirstname"
-            id="clientFirstname"
-            required
-            <?php
-            if (isset($clientFirstname)){
+          <input type="text" name="clientFirstname" id="clientFirstname" required <?php if (isset($clientFirstname)){
               echo "value='$clientFirstname'";
             } elseif (isset($clientData['clientFirstname'])) {
               echo "value='$clientData[clientFirstname]'";
-            }?>
-          >
+            }?> >
         </label>
         <label for="clientLastname">Last name
-          <input
-            type="text"
-            name="clientLastname"
-            id="clientLastname"
-            required
-            <?php
-            if (isset($clientLastname)){
+          <input type="text" name="clientLastname" id="clientLastname" required <?php if (isset($clientLastname)){
               echo "value='$clientLastname'";
             } elseif (isset($clientData['clientLastname'])) {
               echo "value='$clientData[clientLastname]'";
-            }?>>
+            }?> >
         </label>
         <label for="clientEmail">Email
-          <input
-            type="email"
-            name="clientEmail"
-            id="clientEmail"
-            required
-            <?php
-              if (isset($clientEmail)) {
-                echo "value='$clientEmail'";
-              } elseif (isset($clientData['clientEmail'])) {
-                echo "value='$clientData[clientEmail]'";
-              }
-            ?>
-          >
+          <input type="email" name="clientEmail" id="clientEmail" required <?php if (isset($clientEmail)) {
+              echo "value='$clientEmail'";
+            } elseif (isset($clientData['clientEmail'])) {
+              echo "value='$clientData[clientEmail]'";
+            } ?> >
         </label>
         <input class="submitBtn" type="submit" name="submit" value="Update changes">
         <input type="hidden" name="action" value="updateClient">
@@ -79,34 +56,24 @@ if (isset($_SESSION['message'])) {
             echo $clientData['clientId'];
           } elseif (isset($clientId)) {
             echo $clientId;
-          }
-        ?>">
+          } ?>" >
       </form>
 
+      <!-- Update password Form -->
       <form class="form" method="post" action="/phpmotors/accounts/index.php">
         <h2>Update password</h2>
         <p class="password--instructions">There must be 8 characters, any of which may be numbers, any may be non-alphanumeric characters, they may be in any order and can include any number of capital and lower case letters.</p>
-        <label for="clientFirstname">New password
-          <input
-            type="password"
-            name="clientPassword"
-            id="clientPassword"
-            pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-            placeholder="Enter a new password"
-          >
+        <label for="clientPassword">New password
+          <input type="password" name="clientPassword" id="clientPassword" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder="Enter a new password" >
         </label>
         <input class="submitBtn" type="submit" name="submit" value="Update password">
         <input type="hidden" name="action" value="updatePassword">
-        <input type="hidden" name="clientId" value="<?php
-          if(isset($clientData['clientId'])) {
+        <input type="hidden" name="clientId" value="<?php if(isset($clientData['clientId'])) {
             echo $clientData['clientId'];
           } elseif ($clientId) {
             echo $clientId;
-          }
-          ?>"
-        >
+          } ?>" >
       </form>
-
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>
