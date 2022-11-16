@@ -28,7 +28,8 @@ function showNavList($classifications)
 }
 
 // Build the classifications select list
-function buildClassificationList($classifications){
+function buildClassificationList($classifications)
+{
   $classificationList = '<select class="selectForm" name="classificationId" id="classificationList">';
   $classificationList .= "<option>Choose a Classification</option>";
   foreach ($classifications as $classification) {
@@ -36,4 +37,19 @@ function buildClassificationList($classifications){
   }
   $classificationList .= '</select>';
   return $classificationList;
+}
+
+function buildVehiclesDisplay($vehicles)
+{
+  $dv = '<ul id="inv-display">';
+  foreach ($vehicles as $vehicle) {
+    $dv .= '<li>';
+    $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+    $dv .= '<hr>';
+    $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
+    $dv .= "<span>$vehicle[invPrice]</span>";
+    $dv .= '</li>';
+  }
+  $dv .= '</ul>';
+  return $dv;
 }

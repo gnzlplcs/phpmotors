@@ -75,8 +75,8 @@ switch ($action) {
     };
     break;
 
-  // Get vehicles by classificationId / used for starting Update & Delete process
-  case 'getInventoryItems':
+    case 'getInventoryItems':
+    // Get vehicles by classificationId / used for starting Update & Delete process
     // Get the classificationId
     $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
 
@@ -163,6 +163,8 @@ switch ($action) {
     } else {
       $vehicleDisplay = buildVehiclesDisplay($vehicles);
     }
+    // echo $vehicleDisplay;
+    // exit;
     include '../view/classification.php';
     break;
 
