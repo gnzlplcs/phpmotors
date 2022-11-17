@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="hero__imgContainer">
-            <img src='/phpmotors/images/delorean.jpg' alt="Delorean model outline" />
+            <img src='/phpmotors/images/vehicles/delorean.jpg' alt="Delorean model outline" />
           </div>
           <div class="hero__btnContainer--one">
             <img src='/phpmotors/images/site/own_today.png' alt="Own Today button" />

@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
-* {
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 :root {
@@ -307,6 +311,24 @@ Vechicles Management view style starts here
   text-align: center;
 }
 
+#inv-display {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#inv-display li {
+  margin-bottom: .5em;
+  border: 1px #ccc solid;
+  list-style-type: none;
+  flex: 1 1 auto;
+}
+
+#inv-display li img {
+  max-width: 100%;
+}
+
 /*
 ------------------------------
 Desktop view style starts here
@@ -370,4 +392,27 @@ Desktop view style starts here
   .grid-section {
     grid-column: 1 / 3;
   }
+
+  #inv-display {
+		flex-flow: row wrap;
+		justify-content: flex-start;
+	}
+
+	#inv-display h2{
+		font-size: 1rem;
+	}
+
+	#inv-display li {
+		max-width: 200px;
+		flex: 1 0 auto;
+		text-align: center;
+		height: 250px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	#inv-display div {
+		width: 100%;
+	}
 }
