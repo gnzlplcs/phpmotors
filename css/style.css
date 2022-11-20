@@ -16,6 +16,7 @@ html {
   --color-gray-darkest: #3a3a3a;
   --color-blue-light: #a6cbeb;
   --color-blue-dark: #4c96d7;
+  --color-blue-darker: #144570;
   --color-red-warning: rgb(190, 0, 0);
   --color-white: #ffffff;
   --font-share-tech-mono: "Share Tech Mono", monospace;
@@ -343,7 +344,7 @@ Login & Registration style start here
 
 .vehicle--text span {
   font-weight: 800;
-  color: var(--color-blue-dark);
+  color: var(--color-blue-darker);
 }
 
 /*
