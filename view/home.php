@@ -46,7 +46,7 @@
         </ul>
       </section>
 
-      <section class="upgrades">
+      <section class="upgrades section">
         <h2>Delorean Upgrades</h2>
         <div class="upgrades__container">
           <div class="upgrade">

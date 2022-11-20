@@ -26,7 +26,7 @@ $clientData = $_SESSION['clientData'];
       $clientLastname = $clientData['clientLastname'];
       $clientEmail = $clientData['clientEmail'];
       $clientLevel = $clientData['clientLevel'];
-      echo "<section class='admin grid-section'><h1>$clientFirstname $clientLastname</h1>";
+      echo "<section class='admin section grid-section'><h1>$clientFirstname $clientLastname</h1>";
       echo "<p>You are logged in</p>";
       if (isset($_SESSION['message'])) {
         echo $_SESSION['message'];
@@ -41,7 +41,7 @@ $clientData = $_SESSION['clientData'];
       $userData .= '</ul></section>';
       echo $userData;
       if ($clientLevel > 1) {
-        echo "<section class='admin grid-section'><h2>Admin Zone</h2>";
+        echo "<section class='section admin grid-section'><h2>Admin Zone</h2>";
         $adminZone = "<ul>";
         $adminZone .= "<li class='clean-li'>Click to administer inventory</li>";
         $adminZone .= "<li class='clean-li linkCTA'><a class='link-onLight' href='/phpmotors/vehicles/index.php?action=vehicles-man' >Vehicle Management</a></li>";

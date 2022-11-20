@@ -120,6 +120,14 @@ Header Style starts here
   max-width: 175px;
 }
 
+.header__login {
+  margin-right: 15px;
+}
+
+.welcome {
+  display: none;
+}
+
 /*
 ------------------------------
 NavBar Style starts here
@@ -142,6 +150,11 @@ NavBar Style starts here
 Content style starts here
 ------------------------------
 */
+
+main h1 {
+  text-align: center;
+  margin-top: 20px;
+}
 
 section {
   padding: 20px 10px;
@@ -244,7 +257,7 @@ Footer style starts here
 Login & Registration style start here
 ------------------------------
 */
-.login h1, .registration h1, .admin h1, .vehicles-man h1, .add-classification h1, .add-vehicle h1, .vehicles-man h1 {
+.section h1 {
   margin-bottom: 20px;
   text-align: center;
 }
@@ -296,13 +309,50 @@ Login & Registration style start here
   cursor: pointer;
 }
 
+.vehicle__imgContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vehicle__imgContainer img {
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
+.vehicle__rightContainer--price {
+  text-align: right;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-blue-dark);
+
+}
+
+.vehicle__rightContainer--price span {
+  /* background-color: var(--color-blue-light); */
+  background-color: yellow;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.vehicle--text {
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--color-blue-dark);
+}
+
+.vehicle--text span {
+  font-weight: 800;
+  color: var(--color-blue-dark);
+}
+
 /*
 ------------------------------
 Vechicles Management view style starts here
 ------------------------------
 */
 
-.vehicles-man, .add-classification {
+.section {
   margin-top: 20px;
 }
 
@@ -314,19 +364,23 @@ Vechicles Management view style starts here
 #inv-display {
   margin: 0;
   padding: 0;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
 #inv-display li {
   margin-bottom: .5em;
-  border: 1px #ccc solid;
+  /* border: 1px #ccc solid; */
   list-style-type: none;
   flex: 1 1 auto;
+  text-align: center;
+  padding: 10px;
 }
 
 #inv-display li img {
   max-width: 100%;
+  border-radius: 10px;
 }
 
 /*
@@ -355,6 +409,10 @@ Desktop view style starts here
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
+  }
+
+  .welcome {
+    display: inline-block;
   }
 
   .hero {
@@ -415,4 +473,11 @@ Desktop view style starts here
 	#inv-display div {
 		width: 100%;
 	}
+
+  .vehicle {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr ;
+  }
+
+
 }

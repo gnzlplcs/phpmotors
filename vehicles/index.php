@@ -75,7 +75,7 @@ switch ($action) {
     };
     break;
 
-    case 'getInventoryItems':
+  case 'getInventoryItems':
     // Get vehicles by classificationId / used for starting Update & Delete process
     // Get the classificationId
     $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
@@ -140,18 +140,18 @@ switch ($action) {
     }
     break;
 
-    case 'deleteVehicle':
-      $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-      $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-      $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+  case 'deleteVehicle':
+    $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
 
-      $deleteResult = deleteVehicle($invId);
-      if ($deleteResult) {
-        $message = "<p class='success-message'>Congratulations, the $invMake $invModel was successfully deleted.</p>";
-        $_SESSION['message'] = $message;
-        header('Location: /phpmotors/vehicles/');
-        exit;
-      }
+    $deleteResult = deleteVehicle($invId);
+    if ($deleteResult) {
+      $message = "<p class='success-message'>Congratulations, the $invMake $invModel was successfully deleted.</p>";
+      $_SESSION['message'] = $message;
+      header('Location: /phpmotors/vehicles/');
+      exit;
+    }
 
     break;
 
@@ -163,10 +163,20 @@ switch ($action) {
     } else {
       $vehicleDisplay = buildVehiclesDisplay($vehicles);
     }
-    // echo $vehicleDisplay;
-    // exit;
     include '../view/classification.php';
     break;
+
+  case 'details':
+    $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+    $invInfo = getInvItemInfo($invId);
+    if (!isset($invInfo)) {
+      $message = "<p class='warning-message'>Sorry, no vehicle could be found.</p>";
+    } else {
+      $vehicleDetail = buildVehicleDisplay($invInfo);
+    }
+    include '../view/vehicle-detail.php';
+    break;
+
 
   default:
     $classificationList = buildClassificationList($classifications);

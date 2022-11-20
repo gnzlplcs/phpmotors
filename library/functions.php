@@ -44,12 +44,27 @@ function buildVehiclesDisplay($vehicles)
   $dv = '<ul id="inv-display">';
   foreach ($vehicles as $vehicle) {
     $dv .= '<li>';
-    $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+    $dv .= "<a href='/phpmotors/vehicles/?action=details&invId=" . urldecode($vehicle['invId']) . "'><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
     $dv .= '<hr>';
     $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
-    $dv .= "<span>$vehicle[invPrice]</span>";
+    $dv .= "<span>$".number_format($vehicle['invPrice'])."</span>";
     $dv .= '</li>';
   }
   $dv .= '</ul>';
+  return $dv;
+}
+
+function buildVehicleDisplay($invInfo)
+{
+  $dv = "<section class='section vehicle grid-section'>";
+  $dv .= "<div class='vehicle__imgContainer'><img src='$invInfo[invImage]' alt='Image of $invInfo[invMake] $invInfo[invModel] on phpmotors.com'></div>";
+  $dv .= "<div class='vehicle__rightContainer'>";
+  $dv .= "<h2>$invInfo[invMake] $invInfo[invModel] Details</h2>";
+  $dv .= "<h2 class='vehicle__rightContainer--price'><span>&nbsp;$".number_format($invInfo['invPrice'])."&nbsp;</span></h2>";
+  $dv .= "<p class='vehicle--text'><span>Description:</span> $invInfo[invDescription]</p>";
+  $dv .= "<p class='vehicle--text'><span>Stock:</span> $invInfo[invStock]</p>";
+  $dv .= "<p class='vehicle--text'><span>Color:</span> $invInfo[invColor]</p>";
+  $dv .= "</div>";
+  $dv .= '</section>';
   return $dv;
 }

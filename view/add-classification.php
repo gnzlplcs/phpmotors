@@ -14,7 +14,7 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
-      <section class="add-classification grid-section">
+      <section class="section add-classification grid-section">
         <h1>Add Classification</h1>
         <?php
         if (isset($message)) {

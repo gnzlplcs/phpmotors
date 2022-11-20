@@ -25,40 +25,43 @@ if (isset($_SESSION['message'])) {
     <main class="content">
       <h1>Update account</h1>
       <?php if (isset($message)) { echo $message; } ?>
-      
-      <!-- Update account information Form -->
-      <form class="form" method="post" action="/phpmotors/accounts/index.php">
-        <h2>Update name and email account</h2>
-        <label for="clientFirstname">First name
-          <input type="text" name="clientFirstname" id="clientFirstname" required <?php if (isset($clientFirstname)){
-              echo "value='$clientFirstname'";
-            } elseif (isset($clientData['clientFirstname'])) {
-              echo "value='$clientData[clientFirstname]'";
-            }?> >
-        </label>
-        <label for="clientLastname">Last name
-          <input type="text" name="clientLastname" id="clientLastname" required <?php if (isset($clientLastname)){
-              echo "value='$clientLastname'";
-            } elseif (isset($clientData['clientLastname'])) {
-              echo "value='$clientData[clientLastname]'";
-            }?> >
-        </label>
-        <label for="clientEmail">Email
-          <input type="email" name="clientEmail" id="clientEmail" required <?php if (isset($clientEmail)) {
-              echo "value='$clientEmail'";
-            } elseif (isset($clientData['clientEmail'])) {
-              echo "value='$clientData[clientEmail]'";
-            } ?> >
-        </label>
-        <input class="submitBtn" type="submit" name="submit" value="Update changes">
-        <input type="hidden" name="action" value="updateClient">
-        <input type="hidden" name="clientId" value="<?php if(isset($clientData['clientId'])) {
-            echo $clientData['clientId'];
-          } elseif (isset($clientId)) {
-            echo $clientId;
-          } ?>" >
-      </form>
+      <section class="section section-grid">
 
+        <!-- Update account information Form -->
+        <form class="form" method="post" action="/phpmotors/accounts/index.php">
+          <h2>Update name and email account</h2>
+          <label for="clientFirstname">First name
+            <input type="text" name="clientFirstname" id="clientFirstname" required <?php if (isset($clientFirstname)){
+                echo "value='$clientFirstname'";
+              } elseif (isset($clientData['clientFirstname'])) {
+                echo "value='$clientData[clientFirstname]'";
+              }?> >
+          </label>
+          <label for="clientLastname">Last name
+            <input type="text" name="clientLastname" id="clientLastname" required <?php if (isset($clientLastname)){
+                echo "value='$clientLastname'";
+              } elseif (isset($clientData['clientLastname'])) {
+                echo "value='$clientData[clientLastname]'";
+              }?> >
+          </label>
+          <label for="clientEmail">Email
+            <input type="email" name="clientEmail" id="clientEmail" required <?php if (isset($clientEmail)) {
+                echo "value='$clientEmail'";
+              } elseif (isset($clientData['clientEmail'])) {
+                echo "value='$clientData[clientEmail]'";
+              } ?> >
+          </label>
+          <input class="submitBtn" type="submit" name="submit" value="Update changes">
+          <input type="hidden" name="action" value="updateClient">
+          <input type="hidden" name="clientId" value="<?php if(isset($clientData['clientId'])) {
+              echo $clientData['clientId'];
+            } elseif (isset($clientId)) {
+              echo $clientId;
+            } ?>" >
+        </form>
+      </section>
+
+      <section class="section section-grid">
       <!-- Update password Form -->
       <form class="form" method="post" action="/phpmotors/accounts/index.php">
         <h2>Update password</h2>
@@ -73,6 +76,9 @@ if (isset($_SESSION['message'])) {
           } elseif ($clientId) {
             echo $clientId;
           } ?>" >
+
+      </section>
+
       </form>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>

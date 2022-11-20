@@ -14,7 +14,7 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
-      <section class="login grid-section">
+      <section class="login section grid-section">
         <h1>Sign in</h1>
         <?php
         if (isset($_SESSION['message'])) {

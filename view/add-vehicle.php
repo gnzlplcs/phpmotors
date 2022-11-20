@@ -27,7 +27,7 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/header.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="content">
-      <section class="add-vehicle grid-section">
+      <section class="add-vehicle section grid-section">
         <h1>Add Vehicle</h1>
         <?php
         if (isset($message)) {

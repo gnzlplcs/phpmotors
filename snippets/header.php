@@ -3,7 +3,7 @@
   <div class="header__login">
     <?php if (isset($_SESSION['clientData'])) {
       $clientFirstname = $_SESSION['clientData']['clientFirstname'];
-      $welcomeMessage = "<span><a href='/phpmotors/accounts/index.php?action=admin' class='link-onLight'>Welcome $clientFirstname</a> | </span>";
+      $welcomeMessage = "<span class='welcome'><a href='/phpmotors/accounts/index.php?action=admin' class='link-onLight'>Welcome $clientFirstname</a> |&nbsp;</span>";
       $welcomeMessage .= "<a href='/phpmotors/accounts/index.php?action=Logout' class='link-onLight'>Log out</a>";
       echo $welcomeMessage;
     } else {
