@@ -5,10 +5,10 @@
   require_once '../library/functions.php';
   require_once '../model/main-model.php';
   require_once '../model/vehicle-model.php';
-  // require_once '../model/uploads-model.php';
+  require_once '../model/uploads-model.php';
 
   $classifications = getClassifications();
-  $navList = buildNavigation($classifications);
+  $navList = showNavList($classifications);
 
   $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
   if ($action == NULL) {
