@@ -274,7 +274,7 @@ Login & Registration style start here
   margin-bottom: 10px;
 }
 
-.form input, .selectForm {
+.form input, .selectForm, .fieldsetForm {
   width: var(--width-form);
   height: 30px;
   border: 1px solid var(--color-gray-darkest);
@@ -291,6 +291,11 @@ Login & Registration style start here
 }
 
 .form a {
+  text-align: center;
+}
+
+.fieldsetForm label {
+  width: 100%;
   text-align: center;
 }
 

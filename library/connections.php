@@ -6,7 +6,7 @@ function phpmotorsConnect()
   $server = 'localhost';
   $dbname = 'phpmotors';
   $username = 'iClient';
-  $password = '60k.(Ezvr6S4L!Lg';
+  $password = 'sphG7X7uA@)B@Mlo';
   $dsn = "mysql:host=$server;dbname=$dbname";
   $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
