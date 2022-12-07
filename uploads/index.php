@@ -17,7 +17,7 @@
 
   // Variables for use with the Image Upload Functionality
   // + directory name where uploaded images are stored
-  $image_dir = '/phpmotors/uploads/images';
+  $image_dir = '/phpmotors/images/vehicles';
 
   // the path is the full path from the server root
   $image_dir_path = $_SERVER['DOCUMENT_ROOT'] . $image_dir;
