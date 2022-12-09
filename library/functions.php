@@ -1,6 +1,7 @@
 <?php
 
-require_once '../model/account-model.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/model/account-model.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/model/vehicle-model.php';
 
 function checkEmail($clientEmail)
 {
@@ -74,19 +75,41 @@ function buildVehicleDisplay($invInfo)
 function buildReviewsDisplay($reviewsInfo, $invId)
 {
   $dr = "<section class='section reviews grid-section'>";
-  $dr .= "<h3>Past reviews</h3>";
-  foreach($reviewsInfo as $review) {
+  if (count($reviewsInfo) == 0) {
+    $dr .= "<h3>No reviews for this vehicle</h3>";
+  } else {
+    $dr .= "<h3>Past reviews</h3>";
+  }
+  foreach ($reviewsInfo as $review) {
     $client = getClientById($review['clientId']);
     $nameToShow = substr($client['clientFirstname'], 0, 1) . $client['clientLastname'];
     if ($review['invId'] == $invId) {
       $dr .= "<div class='reviews__review'>";
       $dr .= "<p class='reviews__review--text'>$review[reviewText]</p>";
-      $dr .= "<p class='reviews__review--info'>Posted by $nameToShow on ".date("F j, Y, g:i a", (int) strtotime($review['reviewDate']))."</p>";
+      $dr .= "<p class='reviews__review--info'>Posted by $nameToShow on " . date("M j, Y, g:i a", (int) strtotime($review['reviewDate'])) . "</p>";
       $dr .= "</div>";
     }
   };
   $dr .= "</section>";
   return $dr;
+}
+
+function buildReviewsClient($reviewsClient)
+{
+  $drc = "<section><table>";
+  $drc .= "<thead><th>Manage your reviews</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></thead>";
+  foreach ($reviewsClient as $review) {
+    $invInfo = getInvItemInfo($review['invId']);
+    $drc .= "<tr><td>$invInfo[invMake] $invInfo[invModel]</td><td>";
+    $drc .= date("M j, Y", (int) strtotime($review['reviewDate']));
+    $drc .= "</td><td><a class='mg-left' href='/phpmotors/reviews/?action=edit-review&reviewId=";
+    $drc .= urldecode($review['reviewId']);
+    $drc .= "'>Edit</a></td><td><a class='mg-left' href='/phpmotors/reviews/?action=del&reviewId=";
+    $drc .= urldecode($review['reviewId']);
+    $drc .= "'>Delete</a></td></tr>";
+  }
+  $drc .= "</table></section>";
+  return $drc;
 }
 
 /* * ********************************

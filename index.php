@@ -1,8 +1,9 @@
 <?php
 // This is the main controller for the site
-
 // Create or access a Session
 session_start();
+
+require_once 'model/account-model.php';
 
 // Get the database connection file
 require_once 'library/connections.php';

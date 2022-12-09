@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo "$invInfo[invMake] $invInfo[invModel]"; ?> details | PHP Motors</title>
-  <link rel="stylesheet" href="/phpmotors/css/style.css?ts=<?=time()?>" media="screen">
+  <link rel="stylesheet" href="/phpmotors/css/style.css?ts=<?= time() ?>" media="screen">
 </head>
 
 <body>
@@ -18,12 +18,15 @@
       <h3>Vehicles reviews can be seen at the bootom of this page</h3>
       <?php if (isset($message)) {
         echo $message;
-      }?>
+      } ?>
       <?php if (isset($vehicleDetail)) {
         echo $vehicleDetail;
-      }?>
+      } ?>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/add-review.php'; ?>
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/reviews.php'; ?>
+      <!-- <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/reviews.php'; ?> -->
+      <?php if (isset($_SESSION['reviews'])) {
+        echo $_SESSION['reviews'];
+      } ?>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>

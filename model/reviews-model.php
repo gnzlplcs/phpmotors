@@ -29,11 +29,12 @@ function getReviewsByInventory($invId)
   return $reviewArray;
 }
 
-function getReviewsByClient()
+function getReviewsByClient($clientId)
 {
   $db = phpmotorsConnect();
-  $sql = "SELECT reviewText, clients.clientId FROM reviews JOIN clients ON reviews.clientId = clients.clientId";
+  $sql = "SELECT * FROM reviews WHERE clientId IN (SELECT clientId FROM clients WHERE clientId = :clientId) ORDER BY reviews.reviewDate DESC";
   $stmt = $db->prepare($sql);
+  $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
   $stmt->execute();
   $reviewArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
@@ -47,9 +48,9 @@ function getReview($reviewId)
   $stmt = $db->prepare($sql);
   $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
   $stmt->execute();
-  $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $reviewInfo = $stmt->fetch(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
-  return $invInfo;
+  return $reviewInfo;
 }
 
 function updateReview($reviewId, $reviewText, $clientId)
@@ -60,9 +61,11 @@ function updateReview($reviewId, $reviewText, $clientId)
   $stmt->bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
   $stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
   $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+
   $stmt->execute();
   $rowsChanged = $stmt->rowCount();
   $stmt->closeCursor();
+
   return $rowsChanged;
 }
 

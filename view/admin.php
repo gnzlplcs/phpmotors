@@ -1,4 +1,7 @@
 <?php
+
+require_once '../model/reviews-model.php';
+
 if (!$_SESSION['loggedin']) {
   header('Location: /phpmotors/index.php');
   exit;
@@ -48,7 +51,8 @@ $clientData = $_SESSION['clientData'];
         $adminZone .= "</ul></section>";
         echo $adminZone;
       }
-      ?>
+
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/reviews.php'; ?>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>
