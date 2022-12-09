@@ -31,7 +31,7 @@
   } elseif (isset($invMake) && isset($invModel)) {
     echo "Modify $invMake $invModel";
   }?> | PHP Motors</title>
-  <link rel="stylesheet" href="/phpmotors/css/style.css?v=2" media="screen">
+  <link rel="stylesheet" href="/phpmotors/css/style.css?ts=<?= time() ?>" media="screen">
 </head>
 
 <body>

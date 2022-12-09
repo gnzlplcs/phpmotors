@@ -13,7 +13,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
   <title><?php if (isset($invInfo['invMake'])) {
             echo "Delete $invInfo[invMake] $invInfo[invModel]";
           } ?> | PHP Motors</title>
-  <link rel="stylesheet" href="/phpmotors/css/style.css?v=2" media="screen">
+  <link rel="stylesheet" href="/phpmotors/css/style.css?ts=<?= time() ?>" media="screen">
 </head>
 
 <body>

@@ -15,7 +15,7 @@ if (isset($_SESSION['message'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update Account | PHP Motors</title>
-  <link rel="stylesheet" href="/phpmotors/css/style.css?v=2" media="screen">
+  <link rel="stylesheet" href="/phpmotors/css/style.css?ts=<?= time() ?>" media="screen">
 </head>
 
 <body>

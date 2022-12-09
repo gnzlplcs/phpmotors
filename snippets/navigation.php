@@ -1,3 +1,5 @@
 <nav class="navbar">
-  <?php echo $navList; ?>
+  <ul>
+    <?php echo $navList; ?>
+  </ul>
 </nav>

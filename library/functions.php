@@ -21,12 +21,10 @@ function checkPassword($clientPassword)
 // this function receives an array of nav items as parameter, and returns it as an ul html element
 function showNavList($classifications)
 {
-  $navList = '<ul>';
-  $navList .= "<li class='clean-li'><a href='/phpmotors/' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
+  $navList = "<li class='clean-li'><a href='/phpmotors/' title='View the PHP Motors home page' class='link-onDark'>Home</a></li>";
   foreach ($classifications as $classification) {
     $navList .= "<li class='clean-li'><a class='link-onDark' href='/phpmotors/vehicles/?action=classification&classificationName=" . urlencode($classification['classificationName']) . "' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
   }
-  $navList .= '</ul>';
   return $navList;
 }
 
@@ -97,14 +95,14 @@ function buildReviewsDisplay($reviewsInfo, $invId)
 function buildReviewsClient($reviewsClient)
 {
   $drc = "<section><table>";
-  $drc .= "<thead><th>Manage your reviews</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></thead>";
+  $drc .= "<thead><th class='p-bot'>Manage your reviews</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></thead>";
   foreach ($reviewsClient as $review) {
     $invInfo = getInvItemInfo($review['invId']);
-    $drc .= "<tr><td>$invInfo[invMake] $invInfo[invModel]</td><td>";
+    $drc .= "<tr><td class='p-bot'>$invInfo[invMake] $invInfo[invModel]</td><td class='p-bot'>";
     $drc .= date("M j, Y", (int) strtotime($review['reviewDate']));
-    $drc .= "</td><td><a class='mg-left' href='/phpmotors/reviews/?action=edit-review&reviewId=";
+    $drc .= "</td><td class='p-bot'><a class='mg-left link-onLight' href='/phpmotors/reviews/?action=edit-review&reviewId=";
     $drc .= urldecode($review['reviewId']);
-    $drc .= "'>Edit</a></td><td><a class='mg-left' href='/phpmotors/reviews/?action=del&reviewId=";
+    $drc .= "'>Edit</a></td><td class='p-bot'><a class='mg-left link-onLight' href='/phpmotors/reviews/?action=del&reviewId=";
     $drc .= urldecode($review['reviewId']);
     $drc .= "'>Delete</a></td></tr>";
   }

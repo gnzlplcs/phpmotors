@@ -14,8 +14,8 @@ $nameToShow = substr($clientData['clientFirstname'], 0, 1) . $clientData['client
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit review | PHP Motors</title>
-  <link rel="stylesheet" href="/phpmotors/css/style.css?v=2" media="screen">
+  <title>Delete review | PHP Motors</title>
+  <link rel="stylesheet" href="/phpmotors/css/style.css?ts=<?= time() ?>" media="screen">
 </head>
 
 <body>
@@ -29,7 +29,7 @@ $nameToShow = substr($clientData['clientFirstname'], 0, 1) . $clientData['client
           echo $message;
         }
         ?>
-        <h1>Edit review for <?php echo $invInfo['invMake']. " " .$invInfo['invModel']; ?></h1>
+        <h1>Delete review for <?php echo $invInfo['invMake']. " " .$invInfo['invModel']; ?></h1>
         <p>Reviewed on <?php echo date("M j, Y", (int) strtotime($review['reviewDate'])); ?></p>
         <form method='post' action='/phpmotors/reviews/' class='form'>
           <label>Name

@@ -23,7 +23,6 @@
         echo $vehicleDetail;
       } ?>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/add-review.php'; ?>
-      <!-- <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/reviews.php'; ?> -->
       <?php if (isset($_SESSION['reviews'])) {
         echo $_SESSION['reviews'];
       } ?>
