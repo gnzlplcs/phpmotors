@@ -15,12 +15,15 @@
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/navigation.php'; ?>
     <main class="vehicle-details content">
       <h1><?php echo "$invInfo[invMake] $invInfo[invModel]"; ?></h1>
+      <h3>Vehicles reviews can be seen at the bootom of this page</h3>
       <?php if (isset($message)) {
         echo $message;
       }?>
       <?php if (isset($vehicleDetail)) {
         echo $vehicleDetail;
       }?>
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/add-review.php'; ?>
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/reviews.php'; ?>
     </main>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footer.php'; ?>
   </div>

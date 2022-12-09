@@ -4,7 +4,9 @@ session_start();
 
 require_once '../library/connections.php';
 require_once '../library/functions.php';
+require_once '../model/account-model.php';
 require_once '../model/main-model.php';
+require_once '../model/reviews-model.php';
 require_once '../model/vehicle-model.php';
 
 $classifications = getClassifications(); // from main-model.php
@@ -169,10 +171,13 @@ switch ($action) {
   case 'details':
     $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
     $invInfo = getInvItemInfo($invId);
+    $reviewsInfo = getReviewsByInventory($invId);
     if (!isset($invInfo)) {
       $message = "<p class='warning-message'>Sorry, no vehicle could be found.</p>";
     } else {
       $vehicleDetail = buildVehicleDisplay($invInfo);
+      $reviewsDisplay = buildReviewsDisplay($reviewsInfo, $invId);
+      $_SESSION['reviews'] = $reviewsDisplay;
     }
     include '../view/vehicle-detail.php';
     break;

@@ -1,5 +1,7 @@
 <?php
 
+require_once '../model/account-model.php';
+
 function checkEmail($clientEmail)
 {
   $valEmail = filter_var($clientEmail, FILTER_VALIDATE_EMAIL);
@@ -67,6 +69,24 @@ function buildVehicleDisplay($invInfo)
   $dv .= "</div>";
   $dv .= '</section>';
   return $dv;
+}
+
+function buildReviewsDisplay($reviewsInfo, $invId)
+{
+  $dr = "<section class='section reviews grid-section'>";
+  $dr .= "<h3>Past reviews</h3>";
+  foreach($reviewsInfo as $review) {
+    $client = getClientById($review['clientId']);
+    $nameToShow = substr($client['clientFirstname'], 0, 1) . $client['clientLastname'];
+    if ($review['invId'] == $invId) {
+      $dr .= "<div class='reviews__review'>";
+      $dr .= "<p class='reviews__review--text'>$review[reviewText]</p>";
+      $dr .= "<p class='reviews__review--info'>Posted by $nameToShow on ".date("F j, Y, g:i a", (int) strtotime($review['reviewDate']))."</p>";
+      $dr .= "</div>";
+    }
+  };
+  $dr .= "</section>";
+  return $dr;
 }
 
 /* * ********************************
