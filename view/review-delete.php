@@ -32,11 +32,11 @@ $nameToShow = substr($clientData['clientFirstname'], 0, 1) . $clientData['client
         <h1>Delete review for <?php echo $invInfo['invMake']. " " .$invInfo['invModel']; ?></h1>
         <p>Reviewed on <?php echo date("M j, Y", (int) strtotime($review['reviewDate'])); ?></p>
         <form method='post' action='/phpmotors/reviews/' class='form'>
-          <label>Name
-            <input type='text' disabled value="<?php echo $nameToShow ?>">
+          <label for="name">Name
+            <input id="name" type='text' disabled value="<?php echo $nameToShow ?>">
           </label>
           <label for='reviewText'>Review
-            <textarea name='reviewText' rows='10' disabled><?php echo $review['reviewText']?></textarea>
+            <textarea id="reviewText" name='reviewText' rows='10' disabled><?php echo $review['reviewText']?></textarea>
           </label>
           <input type='submit' class='submitBtn' name='delete-submit' value='Delete review'>
           <input type='hidden' name='action' value='delete-review'>

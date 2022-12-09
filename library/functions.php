@@ -94,8 +94,9 @@ function buildReviewsDisplay($reviewsInfo, $invId)
 
 function buildReviewsClient($reviewsClient)
 {
-  $drc = "<section><table>";
-  $drc .= "<thead><th class='p-bot'>Manage your reviews</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></thead>";
+  $drc = "<div><table>";
+  $drc .= "<thead><tr><th class='p-bot'>Manage your reviews</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr></thead>";
+  $drc .= "<tbody>";
   foreach ($reviewsClient as $review) {
     $invInfo = getInvItemInfo($review['invId']);
     $drc .= "<tr><td class='p-bot'>$invInfo[invMake] $invInfo[invModel]</td><td class='p-bot'>";
@@ -106,7 +107,7 @@ function buildReviewsClient($reviewsClient)
     $drc .= urldecode($review['reviewId']);
     $drc .= "'>Delete</a></td></tr>";
   }
-  $drc .= "</table></section>";
+  $drc .= "</tbody></table></div>";
   return $drc;
 }
 

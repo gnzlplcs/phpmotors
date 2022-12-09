@@ -94,7 +94,7 @@ Atomic elements
 }
 
 .success-message {
-  color: var(--color-blue-dark);
+  color: var(--color-blue-darker);
   font-size: 1.15rem;
   font-weight: bold;
   margin: 15px 0;

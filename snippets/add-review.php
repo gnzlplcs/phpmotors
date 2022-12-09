@@ -12,11 +12,11 @@
   if (isset($_SESSION['loggedin'])) {
     echo "
       <form method='post' action='/phpmotors/reviews/' class='form'>
-        <label>Name
-          <input type='text' disabled value='$nameToShow' >
+        <label for='name'>Name
+          <input id='name' type='text' disabled value='$nameToShow' >
         </label>
         <label for='reviewText'>Review
-          <textarea name='reviewText' rows='10' required></textarea>
+          <textarea id='reviewText' name='reviewText' rows='10' required></textarea>
         </label>
         <input type='submit' class='submitBtn' name='add-review-submit' value='Add review'>
         <input type='hidden' name='action' value='adding-review'>
